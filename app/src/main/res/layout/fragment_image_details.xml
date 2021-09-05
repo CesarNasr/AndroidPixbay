@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.example.disample.ui.viewmodel.ImageDetailsFragmentViewModel" />
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".ui.view.ImageDetailsFragment">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/imageViewLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="10dp"
+                app:layout_constraintBottom_toTopOf="@id/horizontalGuideline"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/horizontalGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.35" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/verticalGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+
+            <TextView
+                android:id="@+id/imageSizeTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:gravity="start"
+                android:text="@string/image_size"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/verticalGuideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/horizontalGuideline" />
+
+            <TextView
+                android:id="@+id/imageSizeText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+
+                android:text="@{``+viewmodel.image.imageSize}"
+                app:layout_constraintEnd_toEndOf="@id/imageSizeTitle"
+                app:layout_constraintStart_toStartOf="@id/imageSizeTitle"
+                app:layout_constraintTop_toBottomOf="@id/imageSizeTitle"
+                tools:text="100px" />
+
+
+            <TextView
+                android:id="@+id/imageTypeTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:gravity="start"
+                android:text="@string/image_type"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/imageSizeTitle"
+                app:layout_constraintStart_toStartOf="@+id/imageSizeTitle"
+                app:layout_constraintTop_toBottomOf="@id/imageSizeText" />
+
+            <TextView
+                android:id="@+id/imageTypeText"
+                android:layout_width="0dp"
+
+                android:layout_height="wrap_content"
+
+                android:text="@{viewmodel.image.type}"
+                app:layout_constraintEnd_toEndOf="@id/imageTypeTitle"
+                app:layout_constraintStart_toStartOf="@id/imageTypeTitle"
+                app:layout_constraintTop_toBottomOf="@id/imageTypeTitle"
+                tools:text="PNG" />
+
+
+            <TextView
+                android:id="@+id/imageTagsTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:gravity="start"
+                android:text="@string/image_tags"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/imageSizeTitle"
+                app:layout_constraintStart_toStartOf="@+id/imageSizeTitle"
+                app:layout_constraintTop_toBottomOf="@id/imageTypeText" />
+
+            <TextView
+                android:id="@+id/imageTagsText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewmodel.image.tags}"
+
+                app:layout_constraintEnd_toEndOf="@id/imageTypeTitle"
+                app:layout_constraintStart_toStartOf="@id/imageTypeTitle"
+                app:layout_constraintTop_toBottomOf="@id/imageTagsTitle"
+                tools:text="tags" />
+
+
+            <TextView
+                android:id="@+id/userNameTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:gravity="start"
+                android:text="@string/username"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/verticalGuideline"
+                app:layout_constraintTop_toBottomOf="@id/horizontalGuideline" />
+
+            <TextView
+                android:id="@+id/userNameText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewmodel.image.user}"
+
+                app:layout_constraintEnd_toEndOf="@id/userNameTitle"
+                app:layout_constraintStart_toStartOf="@id/userNameTitle"
+                app:layout_constraintTop_toBottomOf="@id/userNameTitle"
+                tools:text="John" />
+
+
+            <TextView
+                android:id="@+id/viewsTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:gravity="start"
+                android:text="@string/views"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/verticalGuideline"
+                app:layout_constraintTop_toBottomOf="@id/userNameText" />
+
+            <TextView
+                android:id="@+id/viewsText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:text="@{``+viewmodel.image.views}"
+                app:layout_constraintEnd_toEndOf="@id/userNameTitle"
+                app:layout_constraintStart_toStartOf="@id/userNameTitle"
+                app:layout_constraintTop_toBottomOf="@id/viewsTitle"
+                tools:text="100k" />
+
+
+            <TextView
+                android:id="@+id/likesTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:gravity="start"
+                android:text="@string/likes"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/verticalGuideline"
+                app:layout_constraintTop_toBottomOf="@id/viewsText" />
+
+            <TextView
+                android:id="@+id/likesText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:text="@{``+viewmodel.image.likes}"
+                app:layout_constraintEnd_toEndOf="@id/userNameTitle"
+                app:layout_constraintStart_toStartOf="@id/userNameTitle"
+                app:layout_constraintTop_toBottomOf="@id/likesTitle"
+                tools:text="100k" />
+
+
+            <TextView
+                android:id="@+id/commentsTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:gravity="start"
+                android:text="@string/comments"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/verticalGuideline"
+                app:layout_constraintTop_toBottomOf="@id/likesText" />
+
+            <TextView
+                android:id="@+id/commentsText"
+                android:layout_width="0dp"
+
+                android:layout_height="wrap_content"
+                android:text="@{``+viewmodel.image.comments}"
+                app:layout_constraintEnd_toEndOf="@id/userNameTitle"
+                app:layout_constraintStart_toStartOf="@id/userNameTitle"
+                app:layout_constraintTop_toBottomOf="@id/commentsTitle"
+                tools:text="100k" />
+
+
+            <TextView
+                android:id="@+id/favTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:gravity="start"
+                android:text="@string/favourites"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/verticalGuideline"
+                app:layout_constraintTop_toBottomOf="@id/commentsText" />
+
+            <TextView
+                android:id="@+id/favText"
+                android:layout_width="0dp"
+
+
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/userNameTitle"
+                app:layout_constraintStart_toStartOf="@id/userNameTitle"
+                app:layout_constraintTop_toBottomOf="@id/favTitle"
+                tools:text="100k" />
+
+
+            <TextView
+                android:id="@+id/downloadsTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:gravity="start"
+                android:text="@string/downloads"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/verticalGuideline"
+                app:layout_constraintTop_toBottomOf="@id/favText" />
+
+            <TextView
+                android:id="@+id/downloadsText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{``+viewmodel.image.downloads}"
+                app:layout_constraintEnd_toEndOf="@id/userNameTitle"
+                app:layout_constraintStart_toStartOf="@id/userNameTitle"
+                app:layout_constraintTop_toBottomOf="@id/downloadsTitle"
+                tools:text="100k" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>
